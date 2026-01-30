@@ -56,7 +56,9 @@ This includes:
 - And related IO protection and level-shifting circuits
 
 **Repository:** https://github.com/KrzysztofHerman/IHP-Open-PDK  
-**Path:** `ihp-sg13g2/libs.ref/sg13g2_io/xschem/`
+**Branch:** `IO-xschem` (not main branch)  
+**Path:** `ihp-sg13g2/libs.ref/sg13g2_io/xschem/`  
+**Direct Link:** https://github.com/KrzysztofHerman/IHP-Open-PDK/tree/IO-xschem/ihp-sg13g2/libs.ref/sg13g2_io/xschem
 
 **Credit:** Special thanks to Krzysztof Herman for developing and maintaining the IHP-Open-PDK IO library, which provides essential IO pad components for IHP SG13G2 designs.
 
@@ -79,7 +81,7 @@ cd xschem
 xschem testbenches/tb_QDLL_TOP.sch
 ```
 
-**Note:** Requires xschem and the IHP SG13G2 PDK to be properly installed and configured, including the sg13g2_io library from IHP-Open-PDK.
+**Note:** Requires xschem and the IHP SG13G2 PDK to be properly installed and configured, including the sg13g2_io library from IHP-Open-PDK (IO-xschem branch).
 
 ## CACE Characterization
 
