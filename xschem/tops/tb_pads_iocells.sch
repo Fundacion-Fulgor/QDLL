@@ -255,11 +255,11 @@ C {lab_pin.sym} 540 -130 2 0 {name=p3 sig_type=std_logic lab=IO_iovdd}
 C {lab_pin.sym} 570 -20 2 0 {name=p4 sig_type=std_logic lab=IO_iovss}
 C {lab_pin.sym} -610 -120 0 1 {name=p5 sig_type=std_logic lab=IO_vdd}
 C {lab_pin.sym} -610 -30 2 0 {name=p6 sig_type=std_logic lab=IO_vss}
-C {sg13g2_IOPadIOVdd.sym} 380 -80 2 0 {name=x1}
-C {sg13g2_IOPadIOVss.sym} 390 30 2 0 {name=x3}
-C {sg13g2_IOPadVSS.sym} -430 10 2 1 {name=x2}
-C {sg13g2_IOPadVdd.sym} -430 -90 2 1 {name=x4}
-C {sg13g2_IOPadIn.sym} 390 140 2 0 {name=x5}
+C {@KrzysztofHerman/IHP-Open-PDK/ihp-sg13g2/libs.ref/sg13g2_io/xschem/sg13g2_IOPadIOVdd.sym} 380 -80 2 0 {name=x1}
+C {@KrzysztofHerman/IHP-Open-PDK/ihp-sg13g2/libs.ref/sg13g2_io/xschem/sg13g2_IOPadIOVss.sym} 390 30 2 0 {name=x3}
+C {@KrzysztofHerman/IHP-Open-PDK/ihp-sg13g2/libs.ref/sg13g2_io/xschem/sg13g2_IOPadVSS.sym} -430 10 2 1 {name=x2}
+C {@KrzysztofHerman/IHP-Open-PDK/ihp-sg13g2/libs.ref/sg13g2_io/xschem/sg13g2_IOPadVdd.sym} -430 -90 2 1 {name=x4}
+C {@KrzysztofHerman/IHP-Open-PDK/ihp-sg13g2/libs.ref/sg13g2_io/xschem/sg13g2_IOPadIn.sym} 390 140 2 0 {name=x5}
 C {capa.sym} 90 120 0 0 {name=C1
 m=1
 value=100f
@@ -313,7 +313,7 @@ size=80u
 shape=0
 padtype=0
 }
-C {sg13g2_IOPadAnalog.sym} -430 -200 2 1 {name=x13}
+C {@KrzysztofHerman/IHP-Open-PDK/ihp-sg13g2/libs.ref/sg13g2_io/xschem/sg13g2_IOPadAnalog.sym} -430 -200 2 1 {name=x13}
 C {capa.sym} -160 -190 2 0 {name=C2
 m=1
 value=200f
@@ -379,5 +379,5 @@ m=1}
 C {gnd.sym} -840 200 0 0 {name=l2 lab=GND}
 C {gnd.sym} -770 200 0 0 {name=l12 lab=GND}
 C {lab_pin.sym} -800 70 1 0 {name=p21 sig_type=std_logic lab=Padout}
-C {sg13g2_IOPadAnalog.sym} -430 120 2 1 {name=x17}
-C {sg13g2_IOPadAnalog.sym} 380 -200 0 1 {name=x11}
+C {@KrzysztofHerman/IHP-Open-PDK/ihp-sg13g2/libs.ref/sg13g2_io/xschem/sg13g2_IOPadAnalog.sym} -430 120 2 1 {name=x17}
+C {@KrzysztofHerman/IHP-Open-PDK/ihp-sg13g2/libs.ref/sg13g2_io/xschem/sg13g2_IOPadAnalog.sym} 380 -200 0 1 {name=x11}

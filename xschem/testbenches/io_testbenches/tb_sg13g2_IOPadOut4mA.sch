@@ -119,4 +119,4 @@ footprint=1206
 device=resistor
 m=1
 }
-C {sg13g2_pr/sg13g2_IOPadOut4mA.sym} 410 -210 2 1 {name=x2}
+C {@KrzysztofHerman/IHP-Open-PDK/ihp-sg13g2/libs.ref/sg13g2_io/xschem/sg13g2_IOPadOut4mA.sym} 410 -210 2 1 {name=x2}

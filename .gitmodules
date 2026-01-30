@@ -1,0 +1,3 @@
+[submodule "@KrzysztofHerman/IHP-Open-PDK"]
+	path = @KrzysztofHerman/IHP-Open-PDK
+	url = https://github.com/KrzysztofHerman/IHP-Open-PDK.git
