@@ -1,0 +1,63 @@
+** sch_path: /home/mateo/GitRepos/EAMTA2026-VLSI/design/blocks/xorgate/schematic/xorgate.sch
+.subckt xorgate OUT A VDD B VSS
+*.PININFO VDD:B VSS:B A:I B:I OUT:O
+x2 VDD net3 net2 B VSS andgate
+x4 VDD net3 A VSS inverter
+x5 VDD net1 B VSS inverter
+x1 VDD OUT net2 net4 VSS orgate
+x3 VDD A net4 net1 VSS andgate
+.ends
+
+* expanding   symbol:  blocks/andgate/schematic/andgate.sym # of pins=5
+** sym_path: /home/mateo/GitRepos/EAMTA2026-VLSI/design/blocks/andgate/schematic/andgate.sym
+** sch_path: /home/mateo/GitRepos/EAMTA2026-VLSI/design/blocks/andgate/schematic/andgate.sch
+.subckt andgate VDD VA VOUT VB VSS
+*.PININFO VDD:B VSS:B VA:I VB:I VOUT:O
+x1 VDD VA net1 VB VSS nandgate
+x2 VDD VOUT net1 VSS inverter
+.ends
+
+
+* expanding   symbol:  blocks/inverter/schematic/inverter.sym # of pins=4
+** sym_path: /home/mateo/GitRepos/EAMTA2026-VLSI/design/blocks/inverter/schematic/inverter.sym
+** sch_path: /home/mateo/GitRepos/EAMTA2026-VLSI/design/blocks/inverter/schematic/inverter.sch
+.subckt inverter VDD VOUT VIN VSS
+*.PININFO VDD:B VSS:B VOUT:O VIN:I
+M2 VOUT VIN VDD VDD sg13_lv_pmos w=0.3u l=0.13u ng=1
+M1 VOUT VIN VSS VSS sg13_lv_nmos w=0.15u l=0.13u ng=1
+.ends
+
+
+* expanding   symbol:  blocks/orgate/schematic/orgate.sym # of pins=5
+** sym_path: /home/mateo/GitRepos/EAMTA2026-VLSI/design/blocks/orgate/schematic/orgate.sym
+** sch_path: /home/mateo/GitRepos/EAMTA2026-VLSI/design/blocks/orgate/schematic/orgate.sch
+.subckt orgate VDD VOUT VA VB VSS
+*.PININFO VDD:B VSS:B VA:I VB:I VOUT:O
+x2 VDD VOUT net1 VSS inverter
+x1 VDD net1 VA VB VSS norgate
+.ends
+
+
+* expanding   symbol:  blocks/nandgate/schematic/nandgate.sym # of pins=5
+** sym_path: /home/mateo/GitRepos/EAMTA2026-VLSI/design/blocks/nandgate/schematic/nandgate.sym
+** sch_path: /home/mateo/GitRepos/EAMTA2026-VLSI/design/blocks/nandgate/schematic/nandgate.sch
+.subckt nandgate VDD VA VOUT VB VSS
+*.PININFO VDD:B VSS:B VA:I VB:I VOUT:O
+M1 net1 VB VSS VSS sg13_lv_nmos w=0.45u l=0.13u ng=1
+M2 VOUT VA net1 VSS sg13_lv_nmos w=0.15u l=0.13u ng=1
+M3 VOUT VB VDD VDD sg13_lv_pmos w=0.15u l=0.13u ng=1
+M4 VOUT VA VDD VDD sg13_lv_pmos w=0.15u l=0.13u ng=1
+.ends
+
+
+* expanding   symbol:  blocks/norgate/schematic/norgate.sym # of pins=5
+** sym_path: /home/mateo/GitRepos/EAMTA2026-VLSI/design/blocks/norgate/schematic/norgate.sym
+** sch_path: /home/mateo/GitRepos/EAMTA2026-VLSI/design/blocks/norgate/schematic/norgate.sch
+.subckt norgate VDD VOUT VA VB VSS
+*.PININFO VDD:B VSS:B VA:I VB:I VOUT:O
+M1 VOUT VA VSS VSS sg13_lv_nmos w=0.15u l=0.13u ng=1
+M2 VOUT VB VSS VSS sg13_lv_nmos w=0.15u l=0.13u ng=1
+M3 VOUT VB net1 VDD sg13_lv_pmos w=0.15u l=0.13u ng=1
+M4 net1 VA VDD VDD sg13_lv_pmos w=0.15u l=0.13u ng=1
+.ends
+

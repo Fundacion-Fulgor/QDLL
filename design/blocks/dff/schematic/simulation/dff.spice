@@ -1,0 +1,46 @@
+** sch_path: /home/mateo/GitRepos/EAMTA2026-VLSI/design/blocks/dff/schematic/dff.sch
+.subckt dff D Q CLR Qb vdd CLK vss
+*.PININFO D:B Q:B Qb:B CLK:B CLR:B vdd:B vss:B
+x1 clk_neg net1 D vdd vss clk_pos transmissiongate
+x2 clk_pos net4 net2 vdd vss clk_neg transmissiongate
+x3 clk_pos net1 net3 vdd vss clk_neg transmissiongate
+x4 clk_neg net4 Qb vdd vss clk_pos transmissiongate
+x5 vdd CLR net2 net3 vss norgate
+x6 vdd CLR net4 Q vss norgate
+x7 vdd clk_neg CLK vss inverter
+x8 vdd net2 net1 vss inverter
+x9 vdd Qb Q vss inverter
+x10 vdd clk_pos clk_neg vss inverter
+.ends
+
+* expanding   symbol:  blocks/transmissiongate/schematic/transmissiongate.sym # of pins=6
+** sym_path: /home/mateo/GitRepos/EAMTA2026-VLSI/design/blocks/transmissiongate/schematic/transmissiongate.sym
+** sch_path: /home/mateo/GitRepos/EAMTA2026-VLSI/design/blocks/transmissiongate/schematic/transmissiongate.sch
+.subckt transmissiongate a_neg out in vdd vss a_pos
+*.PININFO vdd:B vss:B out:B in:B a_neg:B a_pos:B
+M0 in a_neg out vdd sg13_lv_pmos w=1.5u l=0.15u ng=1
+M1 out a_pos in vss sg13_lv_nmos w=0.75u l=0.15u ng=1
+.ends
+
+
+* expanding   symbol:  blocks/norgate/schematic/norgate.sym # of pins=5
+** sym_path: /home/mateo/GitRepos/EAMTA2026-VLSI/design/blocks/norgate/schematic/norgate.sym
+** sch_path: /home/mateo/GitRepos/EAMTA2026-VLSI/design/blocks/norgate/schematic/norgate.sch
+.subckt norgate vdd b_in a_in out vss
+*.PININFO a_in:B out:B vss:B vdd:B b_in:B
+M1 net1 b_in vdd vdd sg13_lv_pmos w=3.0u l=0.15u ng=1
+M2 out a_in vss vss sg13_lv_nmos w=0.75u l=0.15u ng=1
+M3 out b_in vss vss sg13_lv_nmos w=0.75u l=0.15u ng=1
+M4 out a_in net1 vdd sg13_lv_pmos w=3.0u l=0.15u ng=1
+.ends
+
+
+* expanding   symbol:  blocks/inverter/schematic/inverter.sym # of pins=4
+** sym_path: /home/mateo/GitRepos/EAMTA2026-VLSI/design/blocks/inverter/schematic/inverter.sym
+** sch_path: /home/mateo/GitRepos/EAMTA2026-VLSI/design/blocks/inverter/schematic/inverter.sch
+.subckt inverter vdd out in vss
+*.PININFO vdd:B out:B vss:B in:B
+M1 out in vss vss sg13_lv_nmos w=0.75u l=0.15u ng=1
+M2 out in vdd vdd sg13_lv_pmos w=1.5u l=0.15u ng=1
+.ends
+

@@ -1,0 +1,196 @@
+* Extracted by KLayout with SG13G2 LVS runset on : 06/03/2026 20:09
+
+.SUBCKT XOR
+X$1 VSS VDD B A OUT VDD \$9 \$1 XOR_routed
+.ENDS XOR
+
+.SUBCKT XOR_routed VSS VDD B A OUT VDD$1 \$I58 \$I57
+X$1 VSS \$I58 \$I57 VDD$1 VDD$1 VDD$1 OUT \$17 \$17 \$16 \$16 \$11 \$7 \$11 B B
++ A A \$7 VDD XOR_placement
+X$2 \$7 VSS Via1_constraint
+X$3 \$7 VSS Via2_constraint
+X$4 \$7 VSS Via2_constraint
+X$5 \$7 VSS Via1_constraint
+X$6 A VSS Via1_constraint
+X$7 A VSS Via2_constraint
+X$8 A VSS Via3_constraint
+X$9 A VSS Via3_constraint
+X$10 A VSS Via2_constraint
+X$11 A VSS Via1_constraint
+X$12 B VSS Via1_constraint
+X$13 B VSS Via2_constraint
+X$14 B VSS Via3_constraint
+X$15 B VSS Via3_constraint
+X$16 B VSS Via2_constraint
+X$17 B VSS Via1_constraint
+X$18 \$11 VSS Via1_constraint
+X$19 \$11 VSS Via2_constraint
+X$20 \$11 VSS Via2_constraint
+X$21 \$11 VSS Via1_constraint
+X$22 \$16 VSS Via1_constraint
+X$23 \$16 VSS Via2_constraint
+X$24 \$16 VSS Via2_constraint
+X$25 \$16 VSS Via1_constraint
+X$26 \$17 VSS Via1_constraint
+X$27 \$17 VSS Via2_constraint
+X$28 \$17 VSS Via3_constraint
+X$29 \$17 VSS Via3_constraint
+X$30 \$17 VSS Via2_constraint
+X$31 \$17 VSS Via1_constraint
+.ENDS XOR_routed
+
+.SUBCKT Via3_constraint \$1 \$2
+.ENDS Via3_constraint
+
+.SUBCKT Via2_constraint \$1 \$2
+.ENDS Via2_constraint
+
+.SUBCKT Via1_constraint \$1 \$2
+.ENDS Via1_constraint
+
+.SUBCKT XOR_placement \$1 \$I22 \$I21 \$I20 \$I19 \$I18 \$I17 \$I16 \$I15 \$I14
++ \$I13 \$I12 \$I11 \$I10 \$I9 \$I8 \$I7 \$I6 \$I5 \$I4
+X$1 \$1 \$I13 \$I16 \$I17 \$I18 OR
+X$2 \$1 \$I14 \$I9 \$I5 \$I4 \$I21 AND
+X$3 \$1 \$I15 \$I10 \$I6 \$I4 \$I22 AND
+X$4 \$1 \$I19 \$I7 \$I11 INV_D1$2
+X$5 \$1 \$I20 \$I8 \$I12 INV_D1$2
+.ENDS XOR_placement
+
+.SUBCKT AND VSS VOUT VB VA VDD \$9
+X$1 \$9 VDD VA VB VSS NAND
+X$2 VSS VDD \$9 VOUT INV_D1$1
+X$3 \$9 VSS Via2_constraint$3
+X$4 \$9 VSS Via2_constraint$3
+X$5 \$9 VSS Via1_constraint$3
+.ENDS AND
+
+.SUBCKT INV_D1$2 VSS VDD VIN VOUT
+X$1 VSS VOUT VSS VIN nmos$4
+X$2 VDD VOUT VIN VDD VSS pmos$1$2
+.ENDS INV_D1$2
+
+.SUBCKT OR VSS VA VB VOUT VDD
+X$1 VIN VSS Via2_constraint$2
+X$2 VIN VSS Via1_constraint$2
+X$3 VIN VSS Via2_constraint$2
+X$4 VSS VDD VIN VOUT INV_D1
+X$5 VSS VIN VA VB VDD NOR
+.ENDS OR
+
+.SUBCKT Via1_constraint$3 \$1 \$2
+.ENDS Via1_constraint$3
+
+.SUBCKT Via2_constraint$3 \$1 \$2
+.ENDS Via2_constraint$3
+
+.SUBCKT INV_D1$1 VSS VDD VIN VOUT
+X$1 VSS VOUT VSS VIN nmos$3
+X$2 VDD VOUT VIN VDD VSS pmos$1$1
+.ENDS INV_D1$1
+
+.SUBCKT NAND \$1 VDD VA VB VSS
+X$1 \$1 VSS Via2_constraint$1$1
+X$2 \$2 \$1 VSS VA nmos$2
+X$3 \$1 VSS Via1_constraint$1$1
+X$4 \$1 VSS Via1_constraint$1$1
+X$5 VDD \$1 VB VDD VSS pmos$2
+X$6 \$1 VDD VA VDD VSS pmos$2
+X$7 \$1 VSS Via2_constraint$1$1
+X$8 VSS \$2 VSS VB nmos$1$1
+M$1 \$2 VA \$1 VSS sg13_lv_nmos L=0.13u W=0.15u AS=0.11325p AD=0.1005p PS=1.07u
++ PD=1.34u
+M$2 VSS VB \$2 VSS sg13_lv_nmos L=0.13u W=0.45u AS=0.153p AD=0.11325p PS=1.58u
++ PD=1.07u
+M$3 VDD VB \$1 VDD sg13_lv_pmos L=0.13u W=0.15u AS=0.1005p AD=0.0825p PS=1.34u
++ PD=0.92u
+M$4 \$1 VA VDD VDD sg13_lv_pmos L=0.13u W=0.15u AS=0.0825p AD=0.1005p PS=0.92u
++ PD=1.34u
+.ENDS NAND
+
+.SUBCKT pmos$1$2 \$1 \$2 \$3 \$4 \$6
+M$1 \$1 \$3 \$2 \$4 sg13_lv_pmos L=0.13u W=0.3u AS=0.102p AD=0.102p PS=1.28u
++ PD=1.28u
+.ENDS pmos$1$2
+
+.SUBCKT nmos$4 \$1 \$2 \$3 \$5
+M$1 \$1 \$5 \$2 \$3 sg13_lv_nmos L=0.13u W=0.15u AS=0.1005p AD=0.1005p PS=1.34u
++ PD=1.34u
+.ENDS nmos$4
+
+.SUBCKT INV_D1 VSS VDD VIN VOUT
+X$1 VSS VOUT VSS VIN nmos$1
+X$2 VDD VOUT VIN VDD VSS pmos$1
+.ENDS INV_D1
+
+.SUBCKT NOR VSS VOUT VA VB VDD
+X$1 VOUT VSS VSS VA nmos
+X$2 VSS VOUT VSS VB nmos
+X$3 VOUT VSS Via1_constraint$1
+X$4 VOUT VSS Via2_constraint$1
+X$5 VOUT VSS Via2_constraint$1
+X$6 \$2 VDD VA VDD VSS pmos
+X$7 VOUT \$2 VB VDD VSS pmos
+X$8 VOUT VSS Via1_constraint$1
+M$1 VSS VB VOUT VSS sg13_lv_nmos L=0.13u W=0.15u AS=0.1005p AD=0.0825p PS=1.34u
++ PD=0.92u
+M$2 VOUT VA VSS VSS sg13_lv_nmos L=0.13u W=0.15u AS=0.0825p AD=0.1005p PS=0.92u
++ PD=1.34u
+M$3 VOUT VB \$2 VDD sg13_lv_pmos L=0.13u W=0.15u AS=0.1005p AD=0.0825p PS=1.34u
++ PD=0.92u
+M$4 \$2 VA VDD VDD sg13_lv_pmos L=0.13u W=0.15u AS=0.0825p AD=0.1005p PS=0.92u
++ PD=1.34u
+.ENDS NOR
+
+.SUBCKT Via1_constraint$2 \$1 \$2
+.ENDS Via1_constraint$2
+
+.SUBCKT Via2_constraint$2 \$1 \$2
+.ENDS Via2_constraint$2
+
+.SUBCKT pmos$1$1 \$1 \$2 \$3 \$4 \$6
+M$1 \$1 \$3 \$2 \$4 sg13_lv_pmos L=0.13u W=0.3u AS=0.102p AD=0.102p PS=1.28u
++ PD=1.28u
+.ENDS pmos$1$1
+
+.SUBCKT nmos$3 \$1 \$2 \$3 \$5
+M$1 \$1 \$5 \$2 \$3 sg13_lv_nmos L=0.13u W=0.15u AS=0.1005p AD=0.1005p PS=1.34u
++ PD=1.34u
+.ENDS nmos$3
+
+.SUBCKT Via2_constraint$1$1 \$1 \$2
+.ENDS Via2_constraint$1$1
+
+.SUBCKT nmos$1$1 \$1 \$2 \$3 \$5
+.ENDS nmos$1$1
+
+.SUBCKT Via1_constraint$1$1 \$1 \$2
+.ENDS Via1_constraint$1$1
+
+.SUBCKT pmos$2 \$1 \$2 \$3 \$4 \$6
+.ENDS pmos$2
+
+.SUBCKT nmos$2 \$1 \$2 \$3 \$5
+.ENDS nmos$2
+
+.SUBCKT pmos$1 \$1 \$2 \$3 \$4 \$6
+M$1 \$1 \$3 \$2 \$4 sg13_lv_pmos L=0.13u W=0.3u AS=0.102p AD=0.102p PS=1.28u
++ PD=1.28u
+.ENDS pmos$1
+
+.SUBCKT nmos$1 \$1 \$2 \$3 \$5
+M$1 \$1 \$5 \$2 \$3 sg13_lv_nmos L=0.13u W=0.15u AS=0.1005p AD=0.1005p PS=1.34u
++ PD=1.34u
+.ENDS nmos$1
+
+.SUBCKT pmos \$1 \$2 \$3 \$4 \$6
+.ENDS pmos
+
+.SUBCKT nmos \$1 \$2 \$3 \$5
+.ENDS nmos
+
+.SUBCKT Via2_constraint$1 \$1 \$2
+.ENDS Via2_constraint$1
+
+.SUBCKT Via1_constraint$1 \$1 \$2
+.ENDS Via1_constraint$1

@@ -1,0 +1,8 @@
+** sch_path: /home/mateo/GitRepos/EAMTA2026-VLSI/design/blocks/norgate/schematic/norgate.sch
+.subckt norgate VDD VOUT VA VB VSS
+*.PININFO VDD:B VSS:B VA:I VB:I VOUT:O
+M1 VOUT VA VSS VSS sg13_lv_nmos w=0.15u l=0.13u ng=1
+M2 VOUT VB VSS VSS sg13_lv_nmos w=0.15u l=0.13u ng=1
+M3 VOUT VB net1 VDD sg13_lv_pmos w=0.15u l=0.13u ng=1
+M4 net1 VA VDD VDD sg13_lv_pmos w=0.15u l=0.13u ng=1
+.ends

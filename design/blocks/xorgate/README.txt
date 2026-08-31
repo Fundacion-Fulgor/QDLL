@@ -1,0 +1,2 @@
+Para que el LVS corriendo en deep no arroje errores es necesario modificar a mano las netlists provenientes de Xschem utilizando los mismos nombres de las celdas asignadas por Klayout al momento de hacer la instanciación.
+El archivo XOR.spice contiene la netlist proveniente de Xschem modificada de acuerdo a los nombres asignados por Klayout en el archivo XOR.gds.

@@ -1,0 +1,28 @@
+** sch_path: /home/mateo/GitRepos/EAMTA2026-VLSI/design/blocks/andgate/schematic/andgate.sch
+.subckt andgate VDD VA VOUT VB VSS
+*.PININFO VDD:B VSS:B VA:I VB:I VOUT:O
+x1 VDD VA net1 VB VSS nandgate
+x2 VDD VOUT net1 VSS inverter
+.ends
+
+* expanding   symbol:  blocks/nandgate/schematic/nandgate.sym # of pins=5
+** sym_path: /home/mateo/GitRepos/EAMTA2026-VLSI/design/blocks/nandgate/schematic/nandgate.sym
+** sch_path: /home/mateo/GitRepos/EAMTA2026-VLSI/design/blocks/nandgate/schematic/nandgate.sch
+.subckt nandgate VDD VA VOUT VB VSS
+*.PININFO VDD:B VSS:B VA:I VB:I VOUT:O
+M1 net1 VB VSS VSS sg13_lv_nmos w=0.45u l=0.13u ng=1
+M2 VOUT VA net1 VSS sg13_lv_nmos w=0.15u l=0.13u ng=1
+M3 VOUT VB VDD VDD sg13_lv_pmos w=0.15u l=0.13u ng=1
+M4 VOUT VA VDD VDD sg13_lv_pmos w=0.15u l=0.13u ng=1
+.ends
+
+
+* expanding   symbol:  blocks/inverter/schematic/inverter.sym # of pins=4
+** sym_path: /home/mateo/GitRepos/EAMTA2026-VLSI/design/blocks/inverter/schematic/inverter.sym
+** sch_path: /home/mateo/GitRepos/EAMTA2026-VLSI/design/blocks/inverter/schematic/inverter.sch
+.subckt inverter VDD VOUT VIN VSS
+*.PININFO VDD:B VSS:B VOUT:O VIN:I
+M2 VOUT VIN VDD VDD sg13_lv_pmos w=0.3u l=0.13u ng=1
+M1 VOUT VIN VSS VSS sg13_lv_nmos w=0.15u l=0.13u ng=1
+.ends
+
