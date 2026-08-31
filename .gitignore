@@ -1,1 +1,7 @@
 *.raw
+*.bak
+*~
+.DS_Store
+backups/
+*.backup
+runs/
